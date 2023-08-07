@@ -1,0 +1,48 @@
+:root {
+    --item-size: 24px;
+    --border-size: 24px;
+    --outline-size: 4px;
+
+    --gap: 24px;
+    --per-row: 7;
+
+    --color-green: #2cd64f;
+    --color-red: #f05713;
+}
+
+[data-container] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(
+        var(--item-size) * var(--per-row) + 
+        var(--gap) * (var(--per-row) - 1) +
+        var(--border-size) * 2 * var(--per-row)
+    );
+    gap: var(--gap);
+}
+
+[data-container] > div {
+    border: var(--border-size) solid;
+    width: var(--item-size);
+    height: var(--item-size);
+}
+
+/* second */
+[data-container] > div:nth-child(even) {
+    outline: var(--outline-size) solid var(--color-green);
+    border-color: var(--color-red);
+    background-color: var(--color-green);
+}
+
+/* first */
+[data-container] > div:nth-child(odd) {
+    outline: var(--outline-size) solid var(--color-red);
+    border-color: var(--color-green);
+    background-color: var(--color-red);
+}
+
+
+
+
+
